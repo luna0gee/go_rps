@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors Go</title>
+    <meta name="description" content="Rock Paper Scissors Go">
+    <meta name="author" content="l_na">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/rps.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+</head>
+<body>
+<header id='status-bar'>
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <div id="name_text" class="three columns">Name</div> <div> </div>
+                <div id="balance_div" class="three columns u-pull-right"><text>Balance:    </text><text id="balance_text"></text></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div id="name_form_div" class="six columns">
+                    <form id="name_form">
+                        <input id="name_button" class="button-primary" type="submit" value="Change Name">
+                        <input id="name_form_input" type="text" class="u-pull-left" placeholder="Anonymous" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="six columns">
+                    <form>
+                    <label for="bet_form">Bet</label>
+                    <input type="number" class="u-pull-left" placeholder="100" id="bet_form">
+                    <text id="bet_warning" class="bet_warning">Try Another Bet.</text>
+                    </form>
+                </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="twelve columns">
+            <div id="rps_div" class="six columns">
+                <button id="rock_button" class=""><i class="fa fa-2x fa-hand-rock-o"></i></button>
+                <button id="paper_button" class=""><i class="fa fa-2x fa-hand-paper-o"></i></button>
+                <button id="scissors_button" class=""><i class="fa fa-2x fa-hand-scissors-o"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="twelve columns">
+            <div id="submit_div" class="six columns">
+                <button id="make_move" class="">Submit</button>
+                <div id="submit_msg" class="six columns">
+                    <text>  Game Request Submitted</text>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="twelve columns">
+            <div id="results_div" class="six columns">
+                <button id="play_again" class="">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/rps.js?"></script>
+</body>
+</html>

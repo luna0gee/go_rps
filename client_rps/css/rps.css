@@ -1,0 +1,12 @@
+.selection{
+    border-color: #1EAEDB !important;
+}
+
+.bad_bet{
+    border-color: red !important;
+}
+
+.bet_warning{
+    color: red;
+    padding-left: 10px;
+}
