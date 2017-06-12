@@ -65,6 +65,7 @@
             }
         }
 
+        //Return references to "public" functions
         return{
             submit_move : function(new_move){return submit_move(new_move)},
             get_balance : function(){return get_balance()}

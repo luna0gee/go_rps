@@ -1,4 +1,4 @@
-package main
+package go_rps_logic
 
 import (
 	"time"
@@ -54,7 +54,14 @@ func run_game(player_one * Game_Request, player_two * Game_Request){
 		player_two.Result = "wat"
 		break
 	}
-	store_results()
+
+	//exchange game info
+	player_one.Opp_Bet = player_two.Bet
+	player_two.Opp_Bet = player_one.Bet
+	player_one.Opp_Move = player_two.Move
+	player_two.Opp_Move = player_one.Move
+
+	queue_game_record(player_one, player_two)
 }
 
 func fight(p1_move string, p2_move string) int {

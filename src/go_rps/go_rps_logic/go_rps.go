@@ -1,15 +1,15 @@
-package main
+package go_rps_logic
 
 import (
 	"net/http"
 	"log"
 	"encoding/json"
-	"fmt"
 	"time"
+	"fmt"
 )
 var quit bool = false
 
-func start_game(resp http.ResponseWriter, req *http.Request){
+func Start_game(resp http.ResponseWriter, req *http.Request){
 	if req.Body == nil{
 		http.Error(resp, "Bad Request", 400)
 		return
@@ -24,17 +24,20 @@ func start_game(resp http.ResponseWriter, req *http.Request){
 		return
 	}
 
-	resp.Header().Set("Content'Type", "application/json")
+	resp.Header().Set("Content-Type", "application/json")
 
 	//queue game and wait for response
 	go_play_rps(&new_game)
 
-	results, err := json.Marshal(new_game)
-	if err != nil{
-		http.Error(resp, "Game Processing Error", 400)
-	}
-	fmt.Println(resp, results)
+	//results, err := json.Marshal(new_game)
+	//if err != nil{
+	//	http.Error(resp, "Game Processing Error", 400)
+	//}
+
+	json.NewEncoder(resp).Encode(new_game)
+	fmt.Println("heyo")
 }
+
 
 func go_play_rps(new_game * Game_Request){
 	matches <- new_game
@@ -46,15 +49,16 @@ func go_play_rps(new_game * Game_Request){
 	}
 }
 
-func main(){
+func Go_rps(){
 	//Start channels in independent process
 	go match_maker()
 	go note_taker()
 
+	//TODO refactor routing with mux
 	//Declare Routing
 	serve_dir := http.FileServer(http.Dir("./client_rps"))
 	http.Handle("/", serve_dir)
-	http.HandleFunc("/post", start_game)
+	http.HandleFunc("/post", Start_game)
 
 	//Start Listening
 	log.Println("derp")
