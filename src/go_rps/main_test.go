@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"encoding/json"
 	"strings"
-	"fmt"
 	"go_rps/go_rps_logic"
 	"io/ioutil"
 )
